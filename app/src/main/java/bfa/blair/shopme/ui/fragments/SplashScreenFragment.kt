@@ -12,6 +12,7 @@ class SplashScreenFragment : Fragment() {
 
     lateinit var binding: FragmentSplashScreenBinding
 
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
