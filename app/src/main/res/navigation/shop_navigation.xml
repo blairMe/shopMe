@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shop_navigation"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/signinFragment">
 
     <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="bfa.blair.shopme.ui.fragments.SplashScreenFragment"
+        android:id="@+id/signinFragment"
+        android:name="bfa.blair.shopme.ui.fragments.SigninFragment"
         android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" />
+        tools:layout="@layout/fragment_signin" />
 </navigation>

@@ -5,12 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import bfa.blair.shopme.R
-import bfa.blair.shopme.databinding.FragmentSplashScreenBinding
+import bfa.blair.shopme.databinding.FragmentSigninBinding
 
-class SplashScreenFragment : Fragment() {
+class SigninFragment : Fragment() {
 
-    lateinit var binding: FragmentSplashScreenBinding
+    lateinit var binding: FragmentSigninBinding
 
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +21,7 @@ class SplashScreenFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSplashScreenBinding.inflate(inflater, container, false)
+        binding = FragmentSigninBinding.inflate(inflater, container, false)
         return binding.root
     }
 
