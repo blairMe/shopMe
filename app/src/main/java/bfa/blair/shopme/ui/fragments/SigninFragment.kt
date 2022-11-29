@@ -5,15 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentSigninBinding
+import com.google.android.gms.auth.api.Auth
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SigninFragment : Fragment() {
 
     lateinit var binding: FragmentSigninBinding
 
+    private var auth : FirebaseAuth = Firebase.auth
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val currentUser = auth.currentUser
+//        if(currentUser != null){
+//            reload()
+//        }
     }
 
     override fun onCreateView(
@@ -23,6 +35,23 @@ class SigninFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSigninBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.signuPgBtn.setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(R.id.action_signinFragment_to_signupFragment)
+        }
+
+
+
+
+
+
+
+
     }
 
 }
