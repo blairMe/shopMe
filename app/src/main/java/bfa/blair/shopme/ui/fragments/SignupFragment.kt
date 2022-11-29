@@ -43,11 +43,14 @@ class SignupFragment : Fragment() {
 
 
         val userName = binding.tvUsername.toString()
-        val email = binding.tvEmail.toString()
-        val password = binding.tvPassword.toString()
 
-        binding.singupBtn.setOnClickListener {
-            auth.createUserWithEmailAndPassword(email, password)
+
+        binding.signupBtn.setOnClickListener {
+
+            val email = binding.tvEmail
+            val password = binding.tvPassword
+
+            auth.createUserWithEmailAndPassword(email.toString().trim(), password.toString().trim())
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
