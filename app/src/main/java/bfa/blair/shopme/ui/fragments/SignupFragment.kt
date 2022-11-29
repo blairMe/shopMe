@@ -17,7 +17,7 @@ class SignupFragment : Fragment() {
 
     lateinit var binding: FragmentSignupBinding
 
-    private var auth : FirebaseAuth = Firebase.auth
+    private var auth = Firebase.auth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,15 +46,20 @@ class SignupFragment : Fragment() {
         val email = binding.tvEmail.toString()
         val password = binding.tvPassword.toString()
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(requireActivity()) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    //val user = auth.currentUser
-                    Navigation.findNavController(view)
-                        .navigate(R.id.action_signupFragment_to_homeFragment)
+        binding.singupBtn.setOnClickListener {
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        //val user = auth.currentUser
+                        view.let {
+                            Navigation.findNavController(it)
+                                .navigate(R.id.action_signupFragment_to_homeFragment)
+                        }
+
+                    }
                 }
-            }
+        }
     }
 
 
