@@ -13,7 +13,7 @@ class ShopActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setTheme(R.style.Theme_ShopMe)
+        //setTheme(R.style.Theme_ShopMe)
 
         binding = ActivityShopBinding.inflate(layoutInflater)
         setContentView(binding.root)
