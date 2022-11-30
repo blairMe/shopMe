@@ -16,12 +16,24 @@ class SigninFragment : Fragment() {
 
     lateinit var binding: FragmentSigninBinding
 
+    private var auth: FirebaseAuth = Firebase.auth
 
-    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            view?.let {
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_signinFragment_to_signupFragment)
+            }
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +50,23 @@ class SigninFragment : Fragment() {
         binding.signuPgBtn.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_signinFragment_to_signupFragment)
+        }
+
+        binding.signinBtn.setOnClickListener {
+            val email = binding.usersEmail.text.toString()
+            val password = binding.usersPassword.text.toString()
+
+            auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        view.let {
+                            Navigation.findNavController(it)
+                                .navigate(R.id.action_signupFragment_to_homeFragment)
+                        }
+
+                    }
+                }
+
         }
 
 

@@ -2,10 +2,14 @@ package bfa.blair.shopme.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.ActivityShopBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class ShopActivity : AppCompatActivity() {
 
@@ -22,4 +26,6 @@ class ShopActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, null)
 
     }
+
+
 }

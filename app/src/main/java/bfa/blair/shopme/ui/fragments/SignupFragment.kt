@@ -25,6 +25,17 @@ class SignupFragment : Fragment() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            view?.let {
+                Navigation.findNavController(it)
+                    .navigate(R.id.action_signinFragment_to_signupFragment)
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,8 +67,6 @@ class SignupFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        //val user = auth.currentUser
                         view.let {
                             Navigation.findNavController(it)
                                 .navigate(R.id.action_signupFragment_to_homeFragment)
