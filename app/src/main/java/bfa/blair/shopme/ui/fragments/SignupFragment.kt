@@ -1,6 +1,7 @@
 package bfa.blair.shopme.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ class SignupFragment : Fragment() {
 
     lateinit var binding: FragmentSignupBinding
 
-    private var auth = Firebase.auth
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +48,12 @@ class SignupFragment : Fragment() {
 
         binding.signupBtn.setOnClickListener {
 
-            val email = binding.tvEmail
-            val password = binding.tvPassword
+            auth = Firebase.auth
 
-            auth.createUserWithEmailAndPassword(email.toString().trim(), password.toString().trim())
+            val email = binding.tvEmail.toString()
+            val password = binding.tvPassword.toString()
+
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
@@ -60,6 +63,8 @@ class SignupFragment : Fragment() {
                                 .navigate(R.id.action_signupFragment_to_homeFragment)
                         }
 
+                    } else {
+                        Log.i("Cannot Signup", "Unable to signup")
                     }
                 }
         }
