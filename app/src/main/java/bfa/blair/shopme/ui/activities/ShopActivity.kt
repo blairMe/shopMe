@@ -15,6 +15,8 @@ class ShopActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityShopBinding
 
+    private var auth: FirebaseAuth = Firebase.auth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setTheme(R.style.Theme_ShopMe)
@@ -26,6 +28,21 @@ class ShopActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, null)
 
     }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            val navContoll = findNavController(R.id.action_signupFragment_to_homeFragment)
+            setupActionBarWithNavController(navContoll)
+//            view?.let {
+//                Navigation.findNavController(it)
+//                    .navigate(R.id.action_signinFragment_to_signupFragment)
+//            }
+        }
+    }
+
 
 
 }
