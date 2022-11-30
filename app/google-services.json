@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "246114019159",
-    "project_id": "shop-me-375ed",
-    "storage_bucket": "shop-me-375ed.appspot.com"
+    "project_number": "297580994724",
+    "project_id": "android-projects-a9ab8",
+    "storage_bucket": "android-projects-a9ab8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:246114019159:android:102941130e9a17a4dc8012",
+        "mobilesdk_app_id": "1:297580994724:android:235dc83194cca356064631",
         "android_client_info": {
           "package_name": "bfa.blair.shopme"
         }
       },
       "oauth_client": [
         {
-          "client_id": "246114019159-9fuippqpkogugklrbl438bp6ng7g0iem.apps.googleusercontent.com",
+          "client_id": "297580994724-pbh2bfrdgo5bno7rah8304sns3jndv32.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAwqhZQtPcWZ1lSxZ4LfGUlNU0H5TvGYdU"
+          "current_key": "AIzaSyC9P0G34xVl-wXpvTX3erIfLwzIdsG-Q24"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "246114019159-9fuippqpkogugklrbl438bp6ng7g0iem.apps.googleusercontent.com",
+              "client_id": "297580994724-pbh2bfrdgo5bno7rah8304sns3jndv32.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentSigninBinding
-import com.google.android.gms.auth.api.Auth
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -17,15 +16,11 @@ class SigninFragment : Fragment() {
 
     lateinit var binding: FragmentSigninBinding
 
-    private var auth : FirebaseAuth = Firebase.auth
+
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val currentUser = auth.currentUser
-//        if(currentUser != null){
-//            reload()
-//        }
     }
 
     override fun onCreateView(
