@@ -29,7 +29,7 @@ class SigninFragment : Fragment() {
         if(currentUser != null){
             view?.let {
                 Navigation.findNavController(it)
-                    .navigate(R.id.action_signinFragment_to_signupFragment)
+                    .navigate(R.id.action_signinFragment_to_homeFragment)
             }
         }
     }

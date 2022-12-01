@@ -25,17 +25,6 @@ class SignupFragment : Fragment() {
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if(currentUser != null){
-            view?.let {
-                Navigation.findNavController(it)
-                    .navigate(R.id.action_signinFragment_to_signupFragment)
-            }
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
