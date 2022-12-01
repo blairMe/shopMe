@@ -18,4 +18,12 @@
         <item name="android:windowBackground">@drawable/splash_theme_img</item>
         <item name="statusBarBackground">@color/purple_200</item>
     </style>
+
+    <style name="ProgressBar">
+        <item name="colorSecondary">@color/purple_200</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+
+    </style>
 </resources>

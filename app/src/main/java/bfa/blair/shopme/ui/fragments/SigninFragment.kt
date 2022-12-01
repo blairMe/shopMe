@@ -1,5 +1,6 @@
 package bfa.blair.shopme.ui.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -26,6 +27,8 @@ class SigninFragment : Fragment() {
     lateinit var binding: FragmentSigninBinding
 
     private lateinit var firebaseAuth: FirebaseAuth
+
+    private lateinit var progressDialog : Dialog
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,18 +72,38 @@ class SigninFragment : Fragment() {
             val email = binding.usersEmail.text.toString()
             val password = binding.usersPassword.text.toString()
 
+            showProgressDialogBox()
+
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     firebaseAuth.signInWithEmailAndPassword(email, password).await()
 
                     withContext(Dispatchers.Main) {
+                        if(firebaseAuth.currentUser != null) {
+                            dismissProgressDialogBox()
                             findNavController().navigate(R.id.action_signinFragment_to_homeFragment)
+                        }
                     }
                 } catch (ex: Exception) {
                     Log.e("Error", ex.message.toString())
+                    dismissProgressDialogBox()
                 }
             }
 
+        }
+    }
+
+    private fun showProgressDialogBox() {
+        progressDialog = Dialog(requireActivity())
+        progressDialog.let {
+            it.setContentView(R.layout.loading_dialog)
+            it.show()
+        }
+    }
+
+    private fun dismissProgressDialogBox() {
+        progressDialog.let {
+            it.dismiss()
         }
     }
 }
