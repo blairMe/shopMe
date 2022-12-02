@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.ActivityShopBinding
@@ -26,6 +28,10 @@ class ShopActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_shop_activity)
         setupActionBarWithNavController(navController, null)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(R.id.homeFragment, R.id.signupFragment)
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
     }
 
