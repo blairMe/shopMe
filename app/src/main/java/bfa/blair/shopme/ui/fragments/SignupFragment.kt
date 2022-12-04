@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import bfa.blair.shopme.R
@@ -42,7 +43,6 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.signinPgBtn.setOnClickListener {
@@ -51,30 +51,45 @@ class SignupFragment : Fragment() {
         }
 
 
-        val userName = binding.tvUsername.text.toString()
+
 
 
         binding.signupBtn.setOnClickListener {
 
+            val userName = binding.tvUsername.text.toString()
             val email = binding.tvEmail.text.toString()
             val password = binding.tvPassword.text.toString()
 
             showProgressDialogBox()
 
-            CoroutineScope(Dispatchers.IO).launch {
+            if(userName.isEmpty()) {
+                Toast.makeText(requireActivity(),
+                    "Kindly enter a username",
+                    Toast.LENGTH_SHORT).show()
+            } else if (email.isEmpty()) {
+                Toast.makeText(requireActivity(),
+                    "Kindly enter a email",
+                    Toast.LENGTH_SHORT).show()
+            } else if(password.isEmpty()){
+                Toast.makeText(requireActivity(),
+                    "Kindly enter a valid password",
+                    Toast.LENGTH_SHORT).show()
+            } else {
+                CoroutineScope(Dispatchers.IO).launch {
 
-                try {
-                    firebaseAuth.createUserWithEmailAndPassword(email, password).await()
+                    try {
+                        firebaseAuth.createUserWithEmailAndPassword(email, password).await()
 
-                    withContext(Dispatchers.Main) {
-                        if (firebaseAuth.currentUser != null) {
-                            dismissProgressDialogBox()
-                            findNavController().navigate(R.id.action_signupFragment_to_homeFragment)
+                        withContext(Dispatchers.Main) {
+                            if (firebaseAuth.currentUser != null) {
+                                dismissProgressDialogBox()
+                                findNavController().navigate(R.id.action_signupFragment_to_homeFragment)
+                            }
                         }
+                    } catch (ex: Exception) {
+                        Log.e("Error Signing Up", ex.message.toString())
+                        dismissProgressDialogBox()
                     }
-                } catch (ex: Exception) {
-                    Log.e("Error Signing Up", ex.message.toString())
-                    dismissProgressDialogBox()
                 }
             }
         }

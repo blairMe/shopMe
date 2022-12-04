@@ -72,24 +72,35 @@ class SigninFragment : Fragment() {
             val email = binding.usersEmail.text.toString()
             val password = binding.usersPassword.text.toString()
 
-            showProgressDialogBox()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    firebaseAuth.signInWithEmailAndPassword(email, password).await()
 
-                    withContext(Dispatchers.Main) {
-                        if(firebaseAuth.currentUser != null) {
-                            dismissProgressDialogBox()
-                            findNavController().navigate(R.id.action_signinFragment_to_homeFragment)
+            if(email.isEmpty()) {
+                Toast.makeText(requireActivity(), "Please enter your email", Toast.LENGTH_SHORT).show()
+            } else if(password.isEmpty()) {
+                Toast.makeText(requireActivity(), "Please enter a valid password", Toast.LENGTH_SHORT).show()
+            } else {
+                CoroutineScope(Dispatchers.IO).launch {
+                    showProgressDialogBox()
+                    try {
+                        firebaseAuth.signInWithEmailAndPassword(email, password).await()
+
+                        withContext(Dispatchers.Main) {
+                            if(firebaseAuth.currentUser != null) {
+                                dismissProgressDialogBox()
+                                findNavController().navigate(R.id.action_signinFragment_to_homeFragment)
+                            } else {
+                                dismissProgressDialogBox()
+                                Toast.makeText(requireActivity(),
+                                    "There was an error signing in, please try again",
+                                    Toast.LENGTH_SHORT).show()
+                            }
                         }
+                    } catch (ex: Exception) {
+                        Log.e("Error", ex.message.toString())
+                        dismissProgressDialogBox()
                     }
-                } catch (ex: Exception) {
-                    Log.e("Error", ex.message.toString())
-                    dismissProgressDialogBox()
                 }
             }
-
         }
     }
 
