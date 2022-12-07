@@ -24,6 +24,15 @@ object ApiClient {
 
 }
 
+//data class ProductsResponse(
+//    val id : String,
+//    val title : String,
+//    val price : String,
+//    val category : String,
+//    val description : String,
+//    val image : String
+//)
+
 interface ApiService{
     @GET("products")
     suspend fun fetchProducts() : ProductResponse

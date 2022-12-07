@@ -1,5 +1,6 @@
 package bfa.blair.shopme.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -12,10 +13,15 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
 
         class ProductViewHolder(private val binding: ProductItemLayoutBinding) :
                 RecyclerView.ViewHolder(binding.root) {
-                    val title = binding.productName.toString()
-                    val image = binding.productImage.toString()
-                    val category = binding.productCategory.toString()
-                    val price = binding.productPrice.toString()
+                    fun bindProducts(product: Product) {
+                        val productName = binding.productName
+                        val image = binding.productImage.toString()
+                        val category = binding.productCategory.toString()
+                        val price = binding.productPrice.toString()
+
+                        productName.text = product.title
+                        Log.i("Dish Name", "${product.title}")
+                    }
                 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -29,7 +35,7 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bindProducts(productList[position])
     }
 
     override fun getItemCount(): Int {

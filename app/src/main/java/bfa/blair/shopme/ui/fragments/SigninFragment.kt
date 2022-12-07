@@ -72,21 +72,19 @@ class SigninFragment : Fragment() {
             val email = binding.usersEmail.text.toString()
             val password = binding.usersPassword.text.toString()
 
-
-
             if(email.isEmpty()) {
                 Toast.makeText(requireActivity(), "Please enter your email", Toast.LENGTH_SHORT).show()
             } else if(password.isEmpty()) {
                 Toast.makeText(requireActivity(), "Please enter a valid password", Toast.LENGTH_SHORT).show()
             } else {
                 CoroutineScope(Dispatchers.IO).launch {
-                    showProgressDialogBox()
+                    //showProgressDialogBox()
                     try {
                         firebaseAuth.signInWithEmailAndPassword(email, password).await()
 
                         withContext(Dispatchers.Main) {
                             if(firebaseAuth.currentUser != null) {
-                                dismissProgressDialogBox()
+                                //dismissProgressDialogBox()
                                 findNavController().navigate(R.id.action_signinFragment_to_homeFragment)
                             } else {
                                 dismissProgressDialogBox()
