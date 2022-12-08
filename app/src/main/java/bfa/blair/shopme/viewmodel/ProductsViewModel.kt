@@ -1,5 +1,6 @@
 package bfa.blair.shopme.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,6 +31,7 @@ class ProductsViewModel(private val repository: Repository =
                 _productsLiveData.postValue(ScreenState.Success(client.result))
             } catch (e : Exception) {
                 _productsLiveData.postValue(ScreenState.Error(e.message.toString(), null))
+                Log.i("the message", e.message.toString())
             }
         }
     }

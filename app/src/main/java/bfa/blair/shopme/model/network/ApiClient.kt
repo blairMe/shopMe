@@ -7,8 +7,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
 object ApiClient {
-    // https://fakestoreapi.com/products
-    private var BASE_URL = "https://fakestoreapi.com/"
+    // https://dummyjson.com/products
+    private var BASE_URL = "https://dummyjson.com/"
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
     private val retrofit : Retrofit by lazy {
@@ -23,15 +23,6 @@ object ApiClient {
     }
 
 }
-
-//data class ProductsResponse(
-//    val id : String,
-//    val title : String,
-//    val price : String,
-//    val category : String,
-//    val description : String,
-//    val image : String
-//)
 
 interface ApiService{
     @GET("products")
