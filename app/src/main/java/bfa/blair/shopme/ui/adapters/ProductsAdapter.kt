@@ -1,12 +1,14 @@
 package bfa.blair.shopme.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import bfa.blair.shopme.databinding.ProductItemLayoutBinding
 import bfa.blair.shopme.model.network.Product
+import coil.Coil
+import coil.load
+import coil.transform.RoundedCornersTransformation
 
 class ProductsAdapter(private val productList: List<Product>, private val fragment : Fragment) :
         RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
@@ -22,6 +24,10 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
                         productName.text = product.title
                         category.text = product.category
                         price.text = "$ ${product.price}"
+                        image.load(product.thumbnail) {
+                            crossfade(true)
+                            transformations(RoundedCornersTransformation(20f))
+                        }
                     }
                 }
 
