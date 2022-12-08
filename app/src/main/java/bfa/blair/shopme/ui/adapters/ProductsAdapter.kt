@@ -15,12 +15,13 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
                 RecyclerView.ViewHolder(binding.root) {
                     fun bindProducts(product: Product) {
                         val productName = binding.productName
-                        val image = binding.productImage.toString()
-                        val category = binding.productCategory.toString()
-                        val price = binding.productPrice.toString()
+                        val image = binding.productImage
+                        val category = binding.productCategory
+                        val price = binding.productPrice
 
                         productName.text = product.title
-                        Log.i("Dish Name", "${product.title}")
+                        category.text = product.category
+                        price.text = "$ ${product.price}"
                     }
                 }
 
