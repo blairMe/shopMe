@@ -17,4 +17,8 @@
     <style name="ProgressBar">
         <item name="colorSecondary">@color/purple_200</item>
     </style>
+
+    <style name="textInputField">
+        <item name="colorControlActivated">@color/purple_200</item>
+    </style>
 </resources>

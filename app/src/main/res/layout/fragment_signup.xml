@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -67,6 +67,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/textInputField"
+            app:boxStrokeColor="@color/purple_200"
+            app:startIconDrawable="@drawable/ic_person_icon"
+            app:hintTextColor="@color/purple_200"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
@@ -75,7 +79,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tvUsername"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="text"
                 android:lines="1" />
 
@@ -86,6 +90,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/textInputField"
+            app:boxStrokeColor="@color/purple_200"
+            app:startIconDrawable="@drawable/ic_email_icon"
+            app:hintTextColor="@color/purple_200"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
@@ -94,7 +102,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="textEmailAddress"
                 android:lines="1" />
 
@@ -104,18 +112,22 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="20dp"
             android:hint="Password"
             app:counterEnabled="true"
             app:counterMaxLength="12"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            android:theme="@style/textInputField"
+            app:boxStrokeColor="@color/purple_200"
+            app:startIconDrawable="@drawable/ic_password_icon"
+            app:hintTextColor="@color/purple_200"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tvPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="textPassword"
                 android:lines="1" />
 
@@ -124,7 +136,8 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signupBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/purple_200"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
@@ -158,4 +171,4 @@
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
