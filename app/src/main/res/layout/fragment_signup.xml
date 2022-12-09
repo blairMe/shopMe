@@ -12,9 +12,12 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         app:borderWidth="0dp"
+        android:scaleType="center"
         android:layout_gravity="top|left"
         android:layout_margin="16dp"
-        app:srcCompat="@drawable/ic_back_button" />
+        app:srcCompat="@drawable/ic_back_button"
+        app:maxImageSize="20dp"
+        app:fabCustomSize="35dp"/>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -105,7 +108,7 @@
             app:startIconDrawable="@drawable/ic_person_icon"
             app:hintTextColor="@color/purple_200"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:hint="Enter preferred username">
 
