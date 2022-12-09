@@ -77,14 +77,14 @@ class SigninFragment : Fragment() {
             } else if(password.isEmpty()) {
                 Toast.makeText(requireActivity(), "Please enter a valid password", Toast.LENGTH_SHORT).show()
             } else {
+                showProgressDialogBox()
                 CoroutineScope(Dispatchers.IO).launch {
-                    //showProgressDialogBox()
                     try {
                         firebaseAuth.signInWithEmailAndPassword(email, password).await()
 
                         withContext(Dispatchers.Main) {
                             if(firebaseAuth.currentUser != null) {
-                                //dismissProgressDialogBox()
+                                dismissProgressDialogBox()
                                 findNavController().navigate(R.id.action_signinFragment_to_homeFragment)
                             } else {
                                 dismissProgressDialogBox()

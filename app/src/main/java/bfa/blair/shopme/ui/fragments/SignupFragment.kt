@@ -75,8 +75,8 @@ class SignupFragment : Fragment() {
                     "Kindly enter a valid password",
                     Toast.LENGTH_SHORT).show()
             } else {
+                showProgressDialogBox()
                 CoroutineScope(Dispatchers.IO).launch {
-
                     try {
                         firebaseAuth.createUserWithEmailAndPassword(email, password).await()
 
