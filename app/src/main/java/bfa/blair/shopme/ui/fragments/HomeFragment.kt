@@ -1,12 +1,15 @@
 package bfa.blair.shopme.ui.fragments
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentHomeBinding
 import bfa.blair.shopme.model.network.Product
 import bfa.blair.shopme.ui.activities.ScreenState
@@ -39,6 +42,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Change status bar color for this fragment and the rest
+        requireActivity().window.statusBarColor = this.resources.getColor(R.color.white)
 
         viewModel.productsLiveData.observe(requireActivity()) { state ->
             processProductsResponse(state)

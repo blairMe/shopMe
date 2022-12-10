@@ -34,14 +34,7 @@ class ShopActivity : AppCompatActivity() {
                 R.id.favoriteFragment -> bottomNav.visibility = View.VISIBLE
                 R.id.cartFragment -> bottomNav.visibility = View.VISIBLE
                 R.id.profileFragment -> bottomNav.visibility = View.VISIBLE
-                else -> {bottomNav.visibility = View.GONE
-
-                    // Change action bar color in signup and singin fragments
-                    val window = this.window
-                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                    window.statusBarColor = this.resources.getColor(R.color.purple_200)
-                }
+                else -> {bottomNav.visibility = View.GONE}
             }
         }
     }

@@ -1,12 +1,15 @@
 package bfa.blair.shopme.ui.fragments
 
 import android.app.Dialog
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
@@ -59,6 +62,9 @@ class SigninFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Change status bar color for this signin and signup
+        requireActivity().window.statusBarColor = this.resources.getColor(R.color.purple_200)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
