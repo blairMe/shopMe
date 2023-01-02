@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import bfa.blair.shopme.databinding.ProductItemLayoutBinding
 import bfa.blair.shopme.model.network.Product
+import bfa.blair.shopme.ui.fragments.HomeFragment
 import coil.Coil
 import coil.load
 import coil.transform.RoundedCornersTransformation
@@ -28,7 +29,9 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
                             crossfade(true)
                             transformations(RoundedCornersTransformation(20f))
                         }
+
                     }
+
                 }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -42,7 +45,13 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bindProducts(productList[position])
+        val productPosition = productList[position]
+        holder.bindProducts(productPosition)
+//        holder.itemView.setOnClickListener {
+//            if (fragment is HomeFragment) {
+//                fragment.productDetails(productPosition)
+//            }
+//        }
     }
 
     override fun getItemCount(): Int {

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentHomeBinding
@@ -71,6 +72,10 @@ class HomeFragment : Fragment() {
             }
 
         }
+    }
+
+    fun productDetails(product: Product) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProductDetails(product))
     }
 
 }
