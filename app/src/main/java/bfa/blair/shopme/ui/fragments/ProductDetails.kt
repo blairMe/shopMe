@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import bfa.blair.shopme.R
@@ -43,6 +44,7 @@ class ProductDetails : Fragment() {
 
             val theTitle = it.theProductDetails.title
             Log.d("The title", "$theTitle")
+            Toast.makeText(this.requireContext(), "$theTitle", Toast.LENGTH_SHORT).show()
         }
 
     }

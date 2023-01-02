@@ -47,11 +47,11 @@ class ProductsAdapter(private val productList: List<Product>, private val fragme
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val productPosition = productList[position]
         holder.bindProducts(productPosition)
-//        holder.itemView.setOnClickListener {
-//            if (fragment is HomeFragment) {
-//                fragment.productDetails(productPosition)
-//            }
-//        }
+        holder.itemView.setOnClickListener {
+            if (fragment is HomeFragment) {
+                fragment.productDetails(productPosition)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

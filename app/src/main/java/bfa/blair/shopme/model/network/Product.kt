@@ -1,8 +1,11 @@
 package bfa.blair.shopme.model.network
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @JsonClass(generateAdapter = true)
 data class Product(
     @Json(name = "brand")
@@ -27,7 +30,7 @@ data class Product(
     val thumbnail: String,
     @Json(name = "title")
     val title: String
-)
+) : Parcelable
 
 @JsonClass(generateAdapter = true)
 data class ProductResponse(
