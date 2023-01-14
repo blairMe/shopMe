@@ -7,13 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
+import bfa.blair.shopme.model.network.Product
 import bfa.blair.shopme.model.network.ProductList
+import bfa.blair.shopme.ui.adapters.ProductImagesAdapter
+import bfa.blair.shopme.utils.DataorException
+import bfa.blair.shopme.viewmodel.ProductsViewModel
+
 
 class ProductDetails : Fragment() {
 
-    lateinit var binding : FragmentProductDetailsBinding
+    var binding : FragmentProductDetailsBinding? = null
 
     private var productDetails : ProductList? = null
 
@@ -27,8 +35,7 @@ class ProductDetails : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
-        return binding.root
-
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,11 +47,35 @@ class ProductDetails : Fragment() {
 
          args.let {
 
-            val theTitle = it.theProductDetails.title
-            Log.d("The title", "$theTitle")
-            Toast.makeText(this.requireContext(), "$theTitle", Toast.LENGTH_SHORT).show()
+             val productImages = it.theProductDetails.images
+
+             val adapter = ProductImagesAdapter(productImages, this@ProductDetails)
+             binding!!.productImagesRV.layoutManager =
+                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+             binding!!.productImagesRV.adapter = adapter
+
+             binding!!.productTitle.text = it.theProductDetails.title
+             binding!!.productBrand.text = "Brand: ${it.theProductDetails.brand}"
+             binding!!.productDescription.text = it.theProductDetails.description
+             binding!!.productRating.text = "Rating: ${it.theProductDetails.rating}/5"
+             binding!!.productPrice.text = "$ ${it.theProductDetails.price}"
+             binding!!.productDiscount.text = "${it.theProductDetails.discountPercentage}% off"
+
+
+//             val theTitle = it.theProductDetails.title
+//             Log.d("The title", "$theTitle")
+//             Toast.makeText(this.requireContext(), "$theTitle", Toast.LENGTH_SHORT).show()
         }
 
+        binding!!.backHomeScreen.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }
