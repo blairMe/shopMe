@@ -1,40 +1,32 @@
 package bfa.blair.shopme.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import bfa.blair.shopme.model.network.ApiClient
-import bfa.blair.shopme.model.network.Product
-import bfa.blair.shopme.model.repository.Repository
-import bfa.blair.shopme.ui.activities.ScreenState
+import bfa.blair.shopme.network.Product
+import bfa.blair.shopme.repository.Repository
+import bfa.blair.shopme.utils.DataorException
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductsViewModel(private val repository: Repository =
-    Repository(ApiClient.apiService)) : ViewModel() {
+@HiltViewModel
+class ProductsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _productsLiveData = MutableLiveData<ScreenState<List<Product>?>>()
-    val productsLiveData : LiveData<ScreenState<List<Product>?>>
-
-    get() = _productsLiveData
+    val productsLiveData = MutableLiveData<DataorException<Product, Boolean, Exception>>()
 
     init {
         fetchProducts()
     }
 
     private fun fetchProducts() {
-        _productsLiveData.postValue(ScreenState.Loading(null))
         viewModelScope.launch {
             try {
-                val client = repository.getProducts()
-                _productsLiveData.postValue(ScreenState.Success(client.result))
+                productsLiveData.value = repository.getProducts()
             } catch (e : Exception) {
-                _productsLiveData.postValue(ScreenState.Error(e.message.toString(), null))
                 Log.i("the message", e.message.toString())
             }
         }
     }
-
-
 }

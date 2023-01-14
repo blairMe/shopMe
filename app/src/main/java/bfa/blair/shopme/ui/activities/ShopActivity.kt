@@ -9,7 +9,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.ActivityShopBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ShopActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityShopBinding

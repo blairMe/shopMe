@@ -7,17 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
-import bfa.blair.shopme.model.network.Product
+import bfa.blair.shopme.network.Product
+import bfa.blair.shopme.network.ProductList
 
 class ProductDetails : Fragment() {
 
     lateinit var binding : FragmentProductDetailsBinding
 
-    private var productDetails : Product? = null
+    private var productDetails : ProductList? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class ProductDetails : Fragment() {
 
         productDetails = args.theProductDetails
 
-        args.let {
+         args.let {
 
             val theTitle = it.theProductDetails.title
             Log.d("The title", "$theTitle")
