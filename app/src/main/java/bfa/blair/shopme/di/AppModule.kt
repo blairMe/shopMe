@@ -1,6 +1,6 @@
 package bfa.blair.shopme.di
 
-import bfa.blair.shopme.network.ApiClient
+import bfa.blair.shopme.model.network.ApiClient
 import bfa.blair.shopme.utils.Contants
 import dagger.Module
 import dagger.Provides

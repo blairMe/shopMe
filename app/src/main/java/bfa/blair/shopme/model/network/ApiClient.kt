@@ -1,4 +1,4 @@
-package bfa.blair.shopme.network
+package bfa.blair.shopme.model.network
 
 import retrofit2.http.GET
 import javax.inject.Singleton

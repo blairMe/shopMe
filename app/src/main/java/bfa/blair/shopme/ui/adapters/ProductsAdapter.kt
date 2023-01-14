@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import bfa.blair.shopme.databinding.ProductItemLayoutBinding
-import bfa.blair.shopme.network.Product
-import bfa.blair.shopme.network.ProductList
+import bfa.blair.shopme.model.network.Product
+import bfa.blair.shopme.model.network.ProductList
 import bfa.blair.shopme.ui.fragments.HomeFragment
 import coil.load
 import coil.transform.RoundedCornersTransformation

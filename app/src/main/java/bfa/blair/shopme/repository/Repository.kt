@@ -1,8 +1,8 @@
 package bfa.blair.shopme.repository
 
 import android.util.Log
-import bfa.blair.shopme.network.ApiClient
-import bfa.blair.shopme.network.Product
+import bfa.blair.shopme.model.network.ApiClient
+import bfa.blair.shopme.model.network.Product
 import bfa.blair.shopme.utils.DataorException
 import javax.inject.Inject
 

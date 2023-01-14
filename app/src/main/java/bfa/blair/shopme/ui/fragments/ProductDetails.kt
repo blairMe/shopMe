@@ -8,10 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
-import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
-import bfa.blair.shopme.network.Product
-import bfa.blair.shopme.network.ProductList
+import bfa.blair.shopme.model.network.ProductList
 
 class ProductDetails : Fragment() {
 

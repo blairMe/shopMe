@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import bfa.blair.shopme.network.Product
+import bfa.blair.shopme.model.network.Product
 import bfa.blair.shopme.repository.Repository
 import bfa.blair.shopme.utils.DataorException
 import dagger.hilt.android.lifecycle.HiltViewModel

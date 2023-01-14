@@ -1,4 +1,4 @@
-package bfa.blair.shopme.network
+package bfa.blair.shopme.model.network
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
