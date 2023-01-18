@@ -1,23 +1,16 @@
 package bfa.blair.shopme.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
-import bfa.blair.shopme.model.network.Product
 import bfa.blair.shopme.model.network.ProductList
 import bfa.blair.shopme.ui.adapters.ProductImagesAdapter
-import bfa.blair.shopme.utils.DataorException
-import bfa.blair.shopme.viewmodel.ProductsViewModel
-
 
 class ProductDetails : Fragment() {
 
@@ -61,10 +54,6 @@ class ProductDetails : Fragment() {
              binding!!.productPrice.text = "$ ${it.theProductDetails.price}"
              binding!!.productDiscount.text = "${it.theProductDetails.discountPercentage}% off"
 
-
-//             val theTitle = it.theProductDetails.title
-//             Log.d("The title", "$theTitle")
-//             Toast.makeText(this.requireContext(), "$theTitle", Toast.LENGTH_SHORT).show()
         }
 
         binding!!.backHomeScreen.setOnClickListener {
