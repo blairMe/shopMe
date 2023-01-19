@@ -2,6 +2,7 @@ package bfa.blair.shopme.di
 
 import android.content.Context
 import androidx.room.Room
+import bfa.blair.shopme.data.ProductsDao
 import bfa.blair.shopme.data.ProductsDatabase
 import bfa.blair.shopme.model.network.ApiClient
 import bfa.blair.shopme.utils.Contants
@@ -16,7 +17,22 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideProductsDatabase(productsDatabase: ProductsDatabase) : ProductsDao
+            = productsDatabase.productsDao()
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context) : ProductsDatabase =
+        Room.databaseBuilder(
+            context.applicationContext,
+            ProductsDatabase::class.java,
+            "products_database")
+            .allowMainThreadQueries()
+            .build()
 
     @Provides
     @Singleton
@@ -27,17 +43,5 @@ class AppModule {
             .build()
             .create(ApiClient::class.java)
     }
-
-    @Singleton
-    @Provides
-    fun provideAppDatabase(@ApplicationContext context: Context) {
-        Room.databaseBuilder(
-            context,
-            ProductsDatabase::class.java,
-            "products_database")
-            .fallbackToDestructiveMigration()
-            .build()
-    }
-
 
 }

@@ -6,8 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "cart_tbl")
 data class Cart(
-    @PrimaryKey(autoGenerate = true)
-    val id : Int,
+    @PrimaryKey(autoGenerate = true) val id : Int? = null,
     @ColumnInfo(name = "title")
     val title : String,
     @ColumnInfo(name = "brand")
@@ -15,12 +14,13 @@ data class Cart(
     @ColumnInfo(name = "description")
     val description : String,
     @ColumnInfo(name = "price")
-    val price: Int,
+    val price: String,
     @ColumnInfo(name = "discountPercentage")
-    val discountPercentage: Double,
+    val discountPercentage: String,
     @ColumnInfo(name = "rating")
-    val rating: Double,
+    val rating: String,
     @ColumnInfo(name = "thumbnail")
     val thumbnail: String,
     @ColumnInfo(name = "images")
-    val images: List<String> )
+    val images : List<String>)
+
