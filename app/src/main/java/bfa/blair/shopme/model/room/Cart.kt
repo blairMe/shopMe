@@ -24,6 +24,6 @@ data class Cart(
     @ColumnInfo(name = "thumbnail")
     val thumbnail: String,
     @ColumnInfo(name = "images")
-    val images : List<String>
+    val images : ArrayList<String>
 )
 

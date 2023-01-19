@@ -47,7 +47,7 @@
                     android:layout_weight="1"/>
 
                 <ImageView
-                    android:id="@+id/cartAdder"
+                    android:id="@+id/favoriteBtn"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/ic_favorite_bordered_icon"

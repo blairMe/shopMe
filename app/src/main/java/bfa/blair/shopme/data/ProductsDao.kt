@@ -10,13 +10,13 @@ interface ProductsDao {
 
     // Cart
     @Query("SELECT * from cart_tbl")
-    fun getCart() : Flow<List<Cart>>
+    fun getCart(): Flow<List<Cart>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(cart: Cart)
 
     @Query("SELECT * from cart_tbl where title =:title")
-    suspend fun getCartItemById(title : String) : Cart
+    suspend fun getCartItemById(title: String): Cart
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateCart(cart: Cart)
@@ -29,13 +29,13 @@ interface ProductsDao {
 
     // Favorite
     @Query("SELECT * from favorite_tbl")
-    fun getFavorite() : Flow<List<Favorite>>
+    fun getFavorite(): Flow<List<Favorite>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(favorite: Favorite)
 
     @Query("SELECT * from favorite_tbl where title =:title")
-    suspend fun getFavoriteItemById(title : String) : Favorite
+    suspend fun getFavoriteItemById(title: String): Favorite
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun updateFavorites(favorite: Favorite)

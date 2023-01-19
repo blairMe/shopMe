@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
 import bfa.blair.shopme.model.network.ProductList
 import bfa.blair.shopme.model.room.Cart
+import bfa.blair.shopme.model.room.Favorite
 import bfa.blair.shopme.ui.adapters.ProductImagesAdapter
 import bfa.blair.shopme.viewmodel.CartViewModel
+import bfa.blair.shopme.viewmodel.FavoritesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +25,8 @@ class ProductDetails : Fragment() {
 
     private var productDetails : ProductList? = null
 
-    private val viewModel : CartViewModel by viewModels()
+    private val cartViewModel : CartViewModel by viewModels()
+    private val favoritesViewModel :FavoritesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +70,34 @@ class ProductDetails : Fragment() {
             findNavController().popBackStack()
         }
 
+        binding!!.favoriteBtn.setOnClickListener {
+            val id = args.theProductDetails.id
+            val title = args.theProductDetails.title
+            val brand = args.theProductDetails.brand
+            val description = args.theProductDetails.description
+            val rating = args.theProductDetails.rating.toString()
+            val price = args.theProductDetails.price.toString()
+            val discountPercentage = args.theProductDetails.discountPercentage.toString()
+            val thumbnail = args.theProductDetails.thumbnail
+            val images = args.theProductDetails.images
+
+            val listArrayImages = ArrayList<String>()
+            images.forEach { listArrayImages.add(it) }
+
+            val favorite = Favorite(
+                id,
+                title,
+                brand,
+                description,
+                price,
+                discountPercentage,
+                rating,
+                thumbnail,
+                listArrayImages )
+
+            favoritesViewModel.insertFavorite(favorite)
+        }
+
         binding!!.cartBtn.setOnClickListener {
 
                 val id = args.theProductDetails.id
@@ -79,6 +110,9 @@ class ProductDetails : Fragment() {
                 val thumbnail = args.theProductDetails.thumbnail
                 val images = args.theProductDetails.images
 
+                val listArrayImages = ArrayList<String>()
+                images.forEach { listArrayImages.add(it) }
+
                 val cart = Cart(
                 id,
                 title,
@@ -88,10 +122,9 @@ class ProductDetails : Fragment() {
                 discountPercentage,
                 rating,
                 thumbnail,
-                images )
+                listArrayImages )
 
-                viewModel.insertProduct(cart)
-
+                cartViewModel.insertProduct(cart)
             }
     }
 
