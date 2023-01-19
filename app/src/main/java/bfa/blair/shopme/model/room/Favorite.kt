@@ -4,17 +4,17 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "cart_tbl")
-data class Cart(
+@Entity(tableName = "favorite_tbl")
+data class Favorite(
     @PrimaryKey
     @ColumnInfo
-    val id : Int,
+    val id: Int,
     @ColumnInfo(name = "title")
-    val title : String,
+    val title: String,
     @ColumnInfo(name = "brand")
-    val brand : String,
+    val brand: String,
     @ColumnInfo(name = "description")
-    val description : String,
+    val description: String,
     @ColumnInfo(name = "price")
     val price: String,
     @ColumnInfo(name = "discountPercentage")
@@ -24,6 +24,5 @@ data class Cart(
     @ColumnInfo(name = "thumbnail")
     val thumbnail: String,
     @ColumnInfo(name = "images")
-    val images : List<String>
+    val images: List<String>,
 )
-

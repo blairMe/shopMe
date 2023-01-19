@@ -69,6 +69,7 @@ class ProductDetails : Fragment() {
 
         binding!!.cartBtn.setOnClickListener {
 
+                val id = args.theProductDetails.id
                 val title = args.theProductDetails.title
                 val brand = args.theProductDetails.brand
                 val description = args.theProductDetails.description
@@ -79,7 +80,7 @@ class ProductDetails : Fragment() {
                 val images = args.theProductDetails.images
 
                 val cart = Cart(
-                id = null,
+                id,
                 title,
                 brand,
                 description,
