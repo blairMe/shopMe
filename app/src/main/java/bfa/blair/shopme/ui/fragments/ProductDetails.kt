@@ -84,6 +84,8 @@ class ProductDetails : Fragment() {
             val listArrayImages = ArrayList<String>()
             images.forEach { listArrayImages.add(it) }
 
+            // Favorite
+
             val favorite = Favorite(
                 id,
                 title,
