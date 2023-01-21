@@ -1,5 +1,6 @@
 package bfa.blair.shopme.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import bfa.blair.shopme.model.room.Cart
 import bfa.blair.shopme.model.room.Favorite
@@ -29,7 +30,7 @@ interface ProductsDao {
 
     // Favorite
     @Query("SELECT * from favorite_tbl")
-    fun getFavorite(): Flow<List<Favorite>>
+    fun getFavorite(): LiveData<List<Favorite>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(favorite: Favorite)

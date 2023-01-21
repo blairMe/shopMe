@@ -1,5 +1,6 @@
 package bfa.blair.shopme.repository
 
+import androidx.lifecycle.LiveData
 import bfa.blair.shopme.data.ProductsDao
 import bfa.blair.shopme.model.room.Cart
 import bfa.blair.shopme.model.room.Favorite
@@ -17,7 +18,7 @@ class ProductsRoomRepository @Inject constructor(private val productsDao: Produc
     suspend fun deleteCartItem(cart : Cart) = productsDao.deleteCartItem(cart)
 
     // Favorite
-    fun getFavorite() : Flow<List<Favorite>> = productsDao.getFavorite()
+    fun getFavorite() : LiveData<List<Favorite>> = productsDao.getFavorite()
     suspend fun insertFavorite(favorite: Favorite) = productsDao.insertFavorite(favorite)
     suspend fun getFavoriteItemById(title : String) = productsDao.getFavoriteItemById(title)
     suspend fun updateFavorites(favorite: Favorite) = productsDao.updateFavorites(favorite)

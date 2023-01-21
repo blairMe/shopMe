@@ -54,7 +54,6 @@ class HomeFragment : Fragment() {
 
     private fun processProductsResponse(state : DataorException<Product, Boolean, Exception>) {
 
-
         if(state.loading == true) {
             binding.progressBar.visibility = View.VISIBLE
         } else if (state.data != null) {
