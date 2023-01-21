@@ -30,7 +30,7 @@ interface ProductsDao {
 
     // Favorite
     @Query("SELECT * from favorite_tbl")
-    fun getFavorite(): LiveData<List<Favorite>>
+    fun getFavorite(): Flow<List<Favorite>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFavorite(favorite: Favorite)

@@ -38,21 +38,21 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favoritesViewHolder.thefavoriteList.observe(viewLifecycleOwner) { response ->
+        favoritesViewHolder.favoriteList.observe(viewLifecycleOwner) { response ->
             favoriteProductResponse(response)
         }
     }
 
     private fun favoriteProductResponse(response: List<Favorite>?) {
         if (response!!.isNotEmpty()) {
-            Log.d("Favorites", "You have nothing")
-        } else {
             val adapter = FavoritesAdapter(this@FavoriteFragment)
             binding!!.rvFavorites.layoutManager =
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             binding!!.rvFavorites.adapter = adapter
 
             adapter.favoriteList(response)
+        } else {
+            Log.d("Favorites", "You have nothing")
         }
     }
 

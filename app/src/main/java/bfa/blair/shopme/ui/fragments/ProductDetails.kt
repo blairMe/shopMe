@@ -1,14 +1,19 @@
 package bfa.blair.shopme.ui.fragments
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentProductDetailsBinding
 import bfa.blair.shopme.model.network.ProductList
 import bfa.blair.shopme.model.room.Cart
@@ -41,6 +46,7 @@ class ProductDetails : Fragment() {
         return binding!!.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -96,6 +102,8 @@ class ProductDetails : Fragment() {
                 listArrayImages )
 
             favoritesViewModel.insertFavorite(favorite)
+
+            it.setBackgroundDrawable(resources.getDrawable(R.drawable.ic_favorite_red))
         }
 
         binding!!.cartBtn.setOnClickListener {

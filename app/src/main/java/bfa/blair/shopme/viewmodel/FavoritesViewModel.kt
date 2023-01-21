@@ -15,28 +15,9 @@ import javax.inject.Inject
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(private val repository: ProductsRoomRepository)
     : ViewModel() {
-    private val _favoriteList = MutableStateFlow<List<Favorite>>(emptyList())
-    val favoriteList = MutableLiveData<List<Favorite>>()
 
-    val thefavoriteList : LiveData<List<Favorite>> = repository.getFavorite()
+    val favoriteList : LiveData<List<Favorite>> = repository.getFavorite.asLiveData()
 
-    //init {
-   //     viewModelScope.launch {
-   //         repository.getFavorite().distinctUntilChanged()
-//                .collect{ listOfFavorites ->
-//                    if(listOfFavorites.isNullOrEmpty()) {
-//                        Log.d("Empty", "No favorites")
-//                    } else {
-//                        _favoriteList.value = listOfFavorites
-//                        Log.d("Favorites List", "${favoriteList.value}")
-//                    }
-//
-//                }
-    //    }
-    //}
-
-
-    //fun getFavorites() = viewModelScope.launch { repository.getFavorite() }
     fun insertFavorite(favorite : Favorite) = viewModelScope.launch { repository.insertFavorite(favorite) }
 
 }
