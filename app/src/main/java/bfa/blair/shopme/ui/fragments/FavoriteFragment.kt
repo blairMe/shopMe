@@ -30,7 +30,6 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_favorite, container, false)
         binding = FragmentFavoriteBinding.inflate(layoutInflater, container, false)
         return binding!!.root
     }
