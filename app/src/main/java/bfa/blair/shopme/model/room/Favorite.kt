@@ -1,9 +1,12 @@
 package bfa.blair.shopme.model.room
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "favorite_tbl")
 data class Favorite(
     @PrimaryKey
@@ -25,4 +28,4 @@ data class Favorite(
     val thumbnail: String,
     @ColumnInfo(name = "images")
     val images: ArrayList<String>,
-)
+) : Parcelable
