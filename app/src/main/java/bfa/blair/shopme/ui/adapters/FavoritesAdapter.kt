@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import bfa.blair.shopme.databinding.FavoriteItemLayoutBinding
 import bfa.blair.shopme.model.room.Favorite
+import bfa.blair.shopme.ui.fragments.FavoriteFragment
 import coil.load
 import coil.transform.RoundedCornersTransformation
 
@@ -47,6 +48,11 @@ class FavoritesAdapter(val fragment : Fragment)
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val favoritePosition = favorites[position]
         holder.bindFavorites(favoritePosition)
+        holder.itemView.setOnClickListener {
+            if(fragment is FavoriteFragment) {
+                fragment.favoriteDetails(favoritePosition)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

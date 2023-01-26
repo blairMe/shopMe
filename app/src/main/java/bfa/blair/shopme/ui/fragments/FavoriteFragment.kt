@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentFavoriteBinding
@@ -55,6 +56,9 @@ class FavoriteFragment : Fragment() {
         }
     }
 
+    fun favoriteDetails(favorite: Favorite) {
+        findNavController().navigate(FavoriteFragmentDirections.actionFavoriteFragmentToFavoriteDetailsFragment(favorite))
+    }
     
 
 }
