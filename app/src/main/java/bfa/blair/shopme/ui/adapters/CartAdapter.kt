@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import bfa.blair.shopme.databinding.CartItemLayoutBinding
 import bfa.blair.shopme.model.room.Cart
+import bfa.blair.shopme.ui.fragments.CartFragment
 import coil.load
 import coil.transform.RoundedCornersTransformation
 
@@ -46,6 +47,11 @@ class CartAdapter(val fragment : Fragment) :
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val cartPosition = cart[position]
         holder.bindCart(cartPosition)
+        holder.itemView.setOnClickListener {
+            if (fragment is CartFragment) {
+                fragment.productDetails(cartPosition)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

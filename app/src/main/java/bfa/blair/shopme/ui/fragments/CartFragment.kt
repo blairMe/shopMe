@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import bfa.blair.shopme.R
 import bfa.blair.shopme.databinding.FragmentCartBinding
@@ -54,6 +55,10 @@ class CartFragment : Fragment() {
         } else {
             Log.d("Cart", "You have nothing")
         }
+    }
+
+    fun productDetails(cart: Cart) {
+        findNavController().navigate(CartFragmentDirections.actionCartFragmentToCartDetailsFragment(cart))
     }
 
 }

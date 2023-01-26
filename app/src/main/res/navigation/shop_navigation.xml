@@ -61,7 +61,11 @@
         android:id="@+id/cartFragment"
         android:name="bfa.blair.shopme.ui.fragments.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_cartDetailsFragment"
+            app:destination="@id/cartDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/productDetails"
@@ -83,6 +87,17 @@
         <argument
             android:name="favoriteDetails"
             app:argType="bfa.blair.shopme.model.room.Favorite" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/cartDetailsFragment"
+        android:name="bfa.blair.shopme.ui.fragments.CartDetailsFragment"
+        android:label="fragment_cart_details"
+        tools:layout="@layout/fragment_cart_details">
+
+        <argument
+            android:name="cartDetails"
+            app:argType="bfa.blair.shopme.model.room.Cart" />
 
     </fragment>
 </navigation>
