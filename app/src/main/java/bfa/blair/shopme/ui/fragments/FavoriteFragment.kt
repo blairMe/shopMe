@@ -20,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class FavoriteFragment : Fragment() {
 
     private var binding : FragmentFavoriteBinding? = null
-    private val favoritesViewHolder : FavoritesViewModel by viewModels()
+    private val favoritesViewModel : FavoritesViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favoritesViewHolder.favoriteList.observe(viewLifecycleOwner) { response ->
+        favoritesViewModel.favoriteList.observe(viewLifecycleOwner) { response ->
             favoriteProductResponse(response)
         }
     }

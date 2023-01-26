@@ -1,9 +1,12 @@
 package bfa.blair.shopme.model.room
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "cart_tbl")
 data class Cart(
     @PrimaryKey
@@ -25,5 +28,5 @@ data class Cart(
     val thumbnail: String,
     @ColumnInfo(name = "images")
     val images : ArrayList<String>
-)
+) : Parcelable
 
