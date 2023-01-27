@@ -20,7 +20,7 @@
 
         <ImageView
             android:id="@+id/cartImage"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             tools:srcCompat="@tools:sample/avatars"
             android:scaleType="centerCrop"
@@ -64,7 +64,47 @@
                     android:layout_marginTop="3dp"
                     android:layout_weight="1" />
 
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingEnd="15dp"
+                    android:layout_gravity="end"
+                    android:gravity="center_horizontal">
+
+                    <ImageButton
+                        android:id="@+id/quantityReduce"
+                        android:layout_width="40dp"
+                        android:layout_height="45dp"
+                        android:backgroundTint="@color/purple_200"
+                        android:src="@drawable/ic_reduce_quantity"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:id="@+id/quantityCart"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textSize="15sp"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:layout_gravity="center_horizontal|center_vertical"/>
+
+                    <ImageButton
+                        android:id="@+id/quantityIncrease"
+                        android:layout_width="40dp"
+                        android:layout_height="45dp"
+                        android:backgroundTint="@color/purple_200"
+                        android:src="@drawable/ic_add_quantity"
+                        android:padding="10dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

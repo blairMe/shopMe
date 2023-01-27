@@ -1,7 +1,9 @@
 package bfa.blair.shopme.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import bfa.blair.shopme.databinding.FavoriteItemLayoutBinding
@@ -31,6 +33,14 @@ class FavoritesAdapter(val fragment : Fragment)
             productBrand.text = favorite.brand
             productPrice.text = "$ ${favorite.price}"
 
+            binding.addToCart.setOnClickListener {
+
+            }
+
+            binding.deleteItem.setOnClickListener {
+                Log.d("Add to cart", "Del")
+                Log.d("Add to cart", "Del22")
+            }
 
         }
     }

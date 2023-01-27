@@ -38,6 +38,8 @@ class CartDetailsFragment : Fragment() {
 
         val args : CartDetailsFragmentArgs by navArgs()
 
+        cartDetails = args.cartDetails
+
         args.let {
             val productImages = it.cartDetails.images
 

@@ -22,7 +22,10 @@ class CartAdapter(val fragment : Fragment) :
             val cartThumbnail = binding.cartImage
             val cartName = binding.cartName
             val cartBrand = binding.cartBrand
-            val cartPrice = binding.cartBrand
+            val cartPrice = binding.cartPrice
+            val quantityCart = binding.quantityCart
+            val quantityIncrease = binding.quantityIncrease
+            val quantityReduce = binding.quantityReduce
 
             cartThumbnail.load(cart.thumbnail) {
                 crossfade(true)
@@ -30,7 +33,24 @@ class CartAdapter(val fragment : Fragment) :
             }
             cartName.text = cart.title
             cartBrand.text = cart.brand
-            cartPrice.text = cart.price
+            cartPrice.text = "$ ${cart.price}"
+
+            quantityIncrease.setOnClickListener {
+                val newNumber = quantityCart.text.toString().toInt() + 1
+                quantityCart.text = newNumber.toString()
+            }
+
+            quantityReduce.setOnClickListener {
+                val reducedNumber = quantityCart.text.toString().toInt() - 1
+                if(reducedNumber >= 1) {
+                    quantityCart.text = reducedNumber.toString()
+                } else {
+                    quantityCart.text = "1"
+                }
+
+            }
+
+
         }
     }
 
