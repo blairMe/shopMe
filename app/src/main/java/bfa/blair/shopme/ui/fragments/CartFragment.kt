@@ -53,9 +53,20 @@ class CartFragment : Fragment() {
             binding!!.rvCart.adapter = adapter
 
             adapter.cartList(response)
+
+            var itemPrice = 0
+
+            response.forEach {priceAmnt ->
+                itemPrice += priceAmnt.price.toInt()
+                binding!!.payableAmount.text = itemPrice.toString()
+            }
+
         } else {
             Log.d("Cart", "You have nothing")
         }
+
+
+
     }
 
     fun productDetails(cart: Cart) {

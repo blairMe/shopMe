@@ -99,7 +99,7 @@ class ProductDetails : Fragment() {
                 discountPercentage,
                 rating,
                 thumbnail,
-                listArrayImages )
+                listArrayImages)
 
             favoritesViewModel.insertFavorite(favorite)
 
@@ -130,7 +130,7 @@ class ProductDetails : Fragment() {
                 discountPercentage,
                 rating,
                 thumbnail,
-                listArrayImages )
+                listArrayImages)
 
                 cartViewModel.insertProduct(cart)
             }

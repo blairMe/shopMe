@@ -1,5 +1,6 @@
 package bfa.blair.shopme.ui.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -18,6 +19,9 @@ class CartAdapter(val fragment : Fragment) :
     private var cart : List<Cart> = listOf()
 
     class CartViewHolder(private val binding : CartItemLayoutBinding) : ViewHolder(binding.root) {
+
+        var productNum : String? = null
+        //var binding : CartItemLayoutBinding
         fun bindCart(cart: Cart) {
             val cartThumbnail = binding.cartImage
             val cartName = binding.cartName
@@ -38,6 +42,7 @@ class CartAdapter(val fragment : Fragment) :
             quantityIncrease.setOnClickListener {
                 val newNumber = quantityCart.text.toString().toInt() + 1
                 quantityCart.text = newNumber.toString()
+                productNum = newNumber.toString()
             }
 
             quantityReduce.setOnClickListener {
@@ -47,11 +52,13 @@ class CartAdapter(val fragment : Fragment) :
                 } else {
                     quantityCart.text = "1"
                 }
-
             }
 
 
         }
+
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -72,6 +79,15 @@ class CartAdapter(val fragment : Fragment) :
                 fragment.productDetails(cartPosition)
             }
         }
+
+//        var overRallAmt : Int? = 0
+//        var totatingNum : Int? = null
+//
+//        totatingNum = (cartPosition.price.toInt() * holder.productNum.toString().toInt())
+//        overRallAmt = overRallAmt?.plus(totatingNum)
+//        Log.d("Payable", overRallAmt.toString())
+
+
     }
 
     override fun getItemCount(): Int {

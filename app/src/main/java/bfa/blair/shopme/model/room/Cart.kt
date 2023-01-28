@@ -27,6 +27,6 @@ data class Cart(
     @ColumnInfo(name = "thumbnail")
     val thumbnail: String,
     @ColumnInfo(name = "images")
-    val images : ArrayList<String>
+    val images : ArrayList<String>,
 ) : Parcelable
 

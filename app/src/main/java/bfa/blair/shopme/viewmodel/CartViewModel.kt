@@ -21,5 +21,6 @@ class CartViewModel @Inject constructor(private val repository: ProductsRoomRepo
     val cartList : LiveData<List<Cart>> = repository.getCart().asLiveData()
 
     fun insertProduct(cart: Cart) = viewModelScope.launch { repository.insertProduct(cart) }
+    fun updateCart(cart: Cart) = viewModelScope.launch { repository.updateCart(cart) }
 
 }
