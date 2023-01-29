@@ -29,7 +29,6 @@ class SignupFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -45,13 +44,16 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.signinPgBtn.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_signupFragment_to_signinFragment)
+        }
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController()
+                .navigate(SignupFragmentDirections.actionSignupFragmentToSigninFragment())
         }
 
         binding.signupBtn.setOnClickListener {
