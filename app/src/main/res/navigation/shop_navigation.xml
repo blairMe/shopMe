@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_cartFragment_to_cartDetailsFragment"
             app:destination="@id/cartDetailsFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
 
     <fragment
@@ -98,6 +101,18 @@
         <argument
             android:name="cartDetails"
             app:argType="bfa.blair.shopme.model.room.Cart" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="bfa.blair.shopme.ui.fragments.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout">
+
+        <argument
+            android:name="itemPrice"
+            app:argType="string"
+            android:defaultValue="1"/>
 
     </fragment>
 </navigation>

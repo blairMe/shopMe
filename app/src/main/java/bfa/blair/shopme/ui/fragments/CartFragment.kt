@@ -23,6 +23,8 @@ class CartFragment : Fragment() {
 
     val cartViewModel: CartViewModel by viewModels()
 
+    var itemPrice = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -43,6 +45,11 @@ class CartFragment : Fragment() {
         cartViewModel.cartList.observe(viewLifecycleOwner) { response ->
             cartProductResponse(response)
         }
+
+        binding!!.cartBtn.setOnClickListener {
+            findNavController().navigate(CartFragmentDirections.actionCartFragmentToCheckoutFragment(itemPrice.toString()))
+        }
+
     }
 
     private fun cartProductResponse(response : List<Cart>) {
@@ -54,7 +61,7 @@ class CartFragment : Fragment() {
 
             adapter.cartList(response)
 
-            var itemPrice = 0
+
 
             response.forEach {priceAmnt ->
                 itemPrice += priceAmnt.price.toInt()
@@ -64,8 +71,6 @@ class CartFragment : Fragment() {
         } else {
             Log.d("Cart", "You have nothing")
         }
-
-
 
     }
 

@@ -95,4 +95,7 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.10.1'
 
+    // Daraja
+    implementation ("io.github.victorkabata:daraja-multiplatform:0.9.0")
+
 }
