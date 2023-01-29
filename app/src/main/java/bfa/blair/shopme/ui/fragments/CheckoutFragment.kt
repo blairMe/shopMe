@@ -62,6 +62,9 @@ class CheckoutFragment : Fragment() {
         val itemPrice = args.itemPrice
         binding!!.priceTxt.text = "Please confirm that you are making payment of: $itemPrice"
         binding!!.usersEmail.setText(firebase.currentUser!!.email.toString())
+        binding!!.backBtn.setOnClickListener {
+            findNavController().popBackStack()
+        }
             
         binding!!.confirmBtn.setOnClickListener {
 
