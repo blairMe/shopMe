@@ -11,5 +11,21 @@ This application is a work in progress and I intend to connect it to the Mpesa D
 * Coroutines
 * RoomDb
 * Retrofit
-* Moshi
+* Gson parser
 * Coil
+* Daraja Api
+
+### Screenshots
+#### Login and Signup
+
+#### HomeScreen
+
+#### Cart Screen
+
+#### Favorite Products Screen
+
+#### Checkout and Daraja Payment Screens
+
+### IMPORTANT LINKS
+* To find the daraja api library, click here
+* To find the products api link, click here
