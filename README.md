@@ -25,7 +25,7 @@ This project has also been integrated with the Daraja Api to help access Mpesa a
 <img src = "screenshots/Signin Screen.png" width="250" alt = "Signin">  <img src = "screenshots/Signup Screen.png" width="250" alt = "Signup">
 
 #### HomeScreen and Product Details
-<img src = "screenshots/Home Screen.png" width="250" alt = "Home">  <img src = "screenshots/Product Details.png" width="250" alt = "Product">
+<img src = "screenshots/Home Screen.png" width="250" alt = "Home"><img src = "screenshots/Product Details.png" width="250" alt = "Product">
 
 #### Cart Screen
 <img src = "screenshots/Checkout Screen.png" width="250" alt = "Checkout">
